@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameClearText;
     public GameObject gameOverText;
+    public GameObject ball;
 
     public Text currentBlockNumberText;
     private int currentBlockNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,14 @@ public class GameManager : MonoBehaviour
     public void DestroyBlockObject(){
         currentBlockNumber--;
         ViewCurrentBlockNumber();
-        if(currentBlockNumber<=0)
+        if(currentBlockNumber<=0){
             gameClearText.SetActive(true);
+            ball.SetActive(false);
+        }
+    }
+
+    public void GameOver(){
+        gameOverText.SetActive(true);
+        ball.SetActive(false);
     }
 }

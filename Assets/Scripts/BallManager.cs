@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody))]
 public class BallManager : MonoBehaviour
+{
+    public GameManager gameManager;
     public float firstSpeed = 300.0f; //初速
     private Rigidbody rb; //物理エンジン
     // Start is called before the first frame update
@@ -18,5 +20,11 @@ public class BallManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.CompareTag("GameOver")){
+            gameManager.GameOver();
+        }
     }
 }
