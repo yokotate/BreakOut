@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject gameClearText;
+    public GameObject gameOverText;
+
     public Text currentBlockNumberText;
     private int currentBlockNumber;
     // Start is called before the first frame update
@@ -21,5 +24,7 @@ public class GameManager : MonoBehaviour
     public void DestroyBlockObject(){
         currentBlockNumber--;
         ViewCurrentBlockNumber();
+        if(currentBlockNumber<=0)
+            gameClearText.SetActive(true);
     }
 }
