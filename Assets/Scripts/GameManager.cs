@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public GameObject gameClearText;
     public GameObject gameOverText;
-    public GameObject ball;
 
     public Text currentBlockNumberText;
     private int currentBlockNumber;
@@ -28,12 +27,12 @@ public class GameManager : MonoBehaviour
         ViewCurrentBlockNumber();
         if(currentBlockNumber<=0){
             gameClearText.SetActive(true);
-            ball.SetActive(false);
+            Time.timeScale = 0;
         }
     }
 
     public void GameOver(){
         gameOverText.SetActive(true);
-        ball.SetActive(false);
+        Time.timeScale = 0;
     }
 }
